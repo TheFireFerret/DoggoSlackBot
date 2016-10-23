@@ -87,6 +87,5 @@ class Messenger(object):
         return random.choice(urls)
         
 
-
     def write_doggos(self, channel_id, doggo_type_id):
-        self.send_message(channel_id, get_image(doggo_type_id))
+        self.send_message(channel_id, self.get_image(doggo_type_id))
