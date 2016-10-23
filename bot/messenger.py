@@ -62,7 +62,7 @@ class Messenger(object):
         }
         self.clients.web.chat.post_message(channel_id, txt, attachments=[attachment], as_user='true')
 
-    def get_image(listType):
+    def get_image(self, listType):
         def getLinks(parsed):
             urls = []
             for post in parsed:
