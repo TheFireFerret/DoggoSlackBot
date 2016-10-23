@@ -2,6 +2,8 @@
 
 import logging
 import random
+import requests
+import json
 
 logger = logging.getLogger(__name__)
 
