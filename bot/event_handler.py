@@ -50,5 +50,11 @@ class RtmEventHandler(object):
                     self.msg_writer.demo_attachment(event['channel'])
                 elif 'echo' in msg_txt:
                     self.msg_writer.send_message(event['channel'], msg_txt)
+                elif 'puppers' in msg_txt:
+                    self.msg_writer.write_doggos(event['channel'], 0)
+                elif 'doggos' in msg_txt:
+                    self.msg_writer.write_doggos(event['channel'], 1)
+                elif 'woofers' in msg_txt:
+                    self.msg_writer.write_doggos(event['channel'], 2)
                 else:
                     self.msg_writer.write_prompt(event['channel'])
