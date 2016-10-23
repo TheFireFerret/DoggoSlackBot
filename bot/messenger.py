@@ -62,22 +62,17 @@ class Messenger(object):
         }
         self.clients.web.chat.post_message(channel_id, txt, attachments=[attachment], as_user='true')
 
-
-    def write_doggos(self, channel_id, doggo_type_id):
-        self.send_message(channel_id, get_image(doggo_type_id))
-
-
     def get_image(listType):
-        def getLinks(parsed):
-            urls = []
-            for post in parsed:
-                if 'photos' in post:
-                    photos = post['photos']
-                    size = photos[0]['original_size']
-                    url = size['url']
-                    urls.append(url)
-            # print(urls)
-            return urls
+            def getLinks(parsed):
+                urls = []
+                for post in parsed:
+                    if 'photos' in post:
+                        photos = post['photos']
+                        size = photos[0]['original_size']
+                        url = size['url']
+                        urls.append(url)
+                # print(urls)
+                return urls
 
         doggos = ["samoyed", "shibe", "shiba", "doge", "shibainu", "shetland-sheepdog", "sheltie", "shelties"]
         woofers = ["Saint-Bernard", "mastiff", "greyhound", "german-shepard", "german shepard", "husky", "Siberian Husky", "Golden Retriever"]
@@ -92,3 +87,7 @@ class Messenger(object):
             urls = getLinks(parsed['response'])
         return random.choice(urls)
         
+        
+
+    def write_doggos(self, channel_id, doggo_type_id):
+        self.send_message(channel_id, get_image(doggo_type_id))
